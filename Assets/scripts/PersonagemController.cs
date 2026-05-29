@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonagemController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    public float vel;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,10 @@ public class PersonagemController : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb2d.velocity +=  new Vector2(1,0) * horizontalInput;
+        if(rb2d.velocity.magnitude < 5){
+            rb2d.velocity +=  new Vector2(vel,0) * horizontalInput*Time.deltaTime;
+        }
+      
 
     }
 }
