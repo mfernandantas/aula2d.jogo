@@ -8,13 +8,14 @@ public class PersonagemController : MonoBehaviour
     public float vel;
     public float jumpForce;
     public GameObject groundCheck;
+    private GroundCheck groundCheckScript;
 
     void Start()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
+        groundCheckScript = groundCheck.GetComponent<GroundCheck>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -22,7 +23,7 @@ public class PersonagemController : MonoBehaviour
         {
             rb2d.velocity += new Vector2(vel, 0) * horizontalInput * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && groundCheckScript.isOnGround)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
         }
