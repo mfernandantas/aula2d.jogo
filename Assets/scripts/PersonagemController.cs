@@ -23,7 +23,7 @@ public class PersonagemController : MonoBehaviour
         {
             rb2d.velocity += new Vector2(vel, 0) * horizontalInput * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Space) && groundCheckScript.isOnGround)
+        if (Input.GetKey(KeyCode.UpArrow) && groundCheckScript.isOnGround)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
         }
