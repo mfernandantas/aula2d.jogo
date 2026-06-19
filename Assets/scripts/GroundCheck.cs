@@ -17,6 +17,7 @@ public class GroundCheck : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
+
             isOnGround = true;
         }
     }
